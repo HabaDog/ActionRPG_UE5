@@ -1,4 +1,4 @@
-# ActionRPG UE 5.3 (Upgraded to 5.4)
+# ActionRPG UE 5.3, 5.4, and 5.5
   
 Action RPG sample project upgraded to the latest Unreal Engine, A sample game that shows how to use the Ability System plugin.
 
