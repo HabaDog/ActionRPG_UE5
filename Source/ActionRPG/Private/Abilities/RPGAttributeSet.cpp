@@ -14,6 +14,8 @@ URPGAttributeSet::URPGAttributeSet()
 	, AttackPower(1.0f)
 	, DefensePower(1.0f)
 	, MoveSpeed(1.0f)
+	, MagicAttackPower(1.0f)
+	, MagicDefensePower(1.0f)
 	, Damage(0.0f)
 {
 }
@@ -29,6 +31,8 @@ void URPGAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 	DOREPLIFETIME(URPGAttributeSet, AttackPower);
 	DOREPLIFETIME(URPGAttributeSet, DefensePower);
 	DOREPLIFETIME(URPGAttributeSet, MoveSpeed);
+	DOREPLIFETIME(URPGAttributeSet, MagicAttackPower);
+	DOREPLIFETIME(URPGAttributeSet, MagicDefensePower);
 }
 
 void URPGAttributeSet::OnRep_Health(const FGameplayAttributeData& OldValue)
@@ -64,6 +68,16 @@ void URPGAttributeSet::OnRep_DefensePower(const FGameplayAttributeData& OldValue
 void URPGAttributeSet::OnRep_MoveSpeed(const FGameplayAttributeData& OldValue)
 {
 	GAMEPLAYATTRIBUTE_REPNOTIFY(URPGAttributeSet, MoveSpeed, OldValue);
+}
+
+void URPGAttributeSet::OnRep_MagicAttackPower(const FGameplayAttributeData& OldValue)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URPGAttributeSet, MagicAttackPower, OldValue);
+}
+
+void URPGAttributeSet::OnRep_MagicDefensePower(const FGameplayAttributeData& OldValue)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(URPGAttributeSet, MagicDefensePower, OldValue);
 }
 
 void URPGAttributeSet::AdjustAttributeForMaxChange(FGameplayAttributeData& AffectedAttribute, const FGameplayAttributeData& MaxAttribute, float NewMaxValue, const FGameplayAttribute& AffectedAttributeProperty)

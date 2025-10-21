@@ -62,6 +62,16 @@ public:
 	FGameplayAttributeData MoveSpeed;
 	ATTRIBUTE_ACCESSORS(URPGAttributeSet, MoveSpeed)
 
+	/** MagicAttackPower is used for magic damage calculation, similar to AttackPower but for spells */
+	UPROPERTY(BlueprintReadOnly, Category = "Damage", ReplicatedUsing = OnRep_MagicAttackPower)
+	FGameplayAttributeData MagicAttackPower;
+	ATTRIBUTE_ACCESSORS(URPGAttributeSet, MagicAttackPower)
+
+	/** MagicDefensePower is used to reduce magic damage, similar to DefensePower but for spells */
+	UPROPERTY(BlueprintReadOnly, Category = "Damage", ReplicatedUsing = OnRep_MagicDefensePower)
+	FGameplayAttributeData MagicDefensePower;
+	ATTRIBUTE_ACCESSORS(URPGAttributeSet, MagicDefensePower)
+
 	/** Damage is a 'temporary' attribute used by the DamageExecution to calculate final damage, which then turns into -Health */
 	UPROPERTY(BlueprintReadOnly, Category = "Damage")
 	FGameplayAttributeData Damage;
@@ -92,4 +102,10 @@ protected:
 
 	UFUNCTION()
 	virtual void OnRep_MoveSpeed(const FGameplayAttributeData& OldValue);
+
+	UFUNCTION()
+	virtual void OnRep_MagicAttackPower(const FGameplayAttributeData& OldValue);
+
+	UFUNCTION()
+	virtual void OnRep_MagicDefensePower(const FGameplayAttributeData& OldValue);
 };

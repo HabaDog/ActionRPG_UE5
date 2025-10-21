@@ -14,6 +14,17 @@
 class URPGItem;
 class URPGSaveGame;
 
+/** Damage type enum - determines which attributes are used for damage calculation */
+UENUM(BlueprintType)
+enum class ERPGDamageType : uint8
+{
+	/** Physical damage - uses AttackPower and DefensePower */
+	Physical UMETA(DisplayName = "Physical Damage"),
+	
+	/** Magical damage - uses MagicAttackPower and MagicDefensePower */
+	Magical UMETA(DisplayName = "Magical Damage")
+};
+
 /** Struct representing a slot for an item, shown in the UI */
 USTRUCT(BlueprintType)
 struct ACTIONRPG_API FRPGItemSlot

@@ -88,6 +88,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Abilities")
 	bool GetCooldownRemainingForTag(FGameplayTagContainer CooldownTags, float& TimeRemaining, float& CooldownDuration);
 
+	/** Get the team ID for this character (public accessor) */
+	UFUNCTION(BlueprintCallable, Category = "Teams")
+	FGenericTeamId GetTeamId() const { return GetGenericTeamId(); }
+
 protected:
 	/** The level of this character, should not be modified directly once it has already spawned */
 	UPROPERTY(EditAnywhere, Replicated, Category = Abilities)

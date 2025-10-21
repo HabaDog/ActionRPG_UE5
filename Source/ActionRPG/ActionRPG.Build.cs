@@ -27,7 +27,9 @@ public class ActionRPG : ModuleRules
 				"GameplayAbilities",
 				"GameplayTags",
 				"GameplayTasks",
-				"AIModule"
+				"AIModule",
+				"StateTreeModule",
+				"NavigationSystem"
 			}
 		);
 
